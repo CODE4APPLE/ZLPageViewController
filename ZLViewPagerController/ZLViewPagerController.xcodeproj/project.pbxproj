@@ -1,0 +1,353 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		085B6FAC1CCC7B0C00E881EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 085B6FAB1CCC7B0C00E881EA /* main.m */; };
+		085B6FAF1CCC7B0C00E881EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 085B6FAE1CCC7B0C00E881EA /* AppDelegate.m */; };
+		085B6FB21CCC7B0C00E881EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085B6FB11CCC7B0C00E881EA /* ViewController.m */; };
+		085B6FB51CCC7B0C00E881EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 085B6FB31CCC7B0C00E881EA /* Main.storyboard */; };
+		085B6FB71CCC7B0C00E881EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 085B6FB61CCC7B0C00E881EA /* Assets.xcassets */; };
+		085B6FBA1CCC7B0D00E881EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 085B6FB81CCC7B0D00E881EA /* LaunchScreen.storyboard */; };
+		085B6FC41CCC83F700E881EA /* ZLViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085B6FC31CCC83F700E881EA /* ZLViewPagerController.m */; };
+		085B6FC71CCC8BB900E881EA /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 085B6FC61CCC8BB900E881EA /* UIView+Frame.m */; };
+		085B6FCA1CCC8BF500E881EA /* ZLViewPagerFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 085B6FC91CCC8BF500E881EA /* ZLViewPagerFlowLayout.m */; };
+		085B6FCD1CCCA9C500E881EA /* ChildDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085B6FCC1CCCA9C500E881EA /* ChildDemoViewController.m */; };
+		085B6FD11CCCC75600E881EA /* ZLScrollPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085B6FD01CCCC75600E881EA /* ZLScrollPageViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		085B6FA71CCC7B0C00E881EA /* ZLViewPagerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZLViewPagerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		085B6FAB1CCC7B0C00E881EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		085B6FAD1CCC7B0C00E881EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		085B6FAE1CCC7B0C00E881EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		085B6FB01CCC7B0C00E881EA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		085B6FB11CCC7B0C00E881EA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		085B6FB41CCC7B0C00E881EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		085B6FB61CCC7B0C00E881EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		085B6FB91CCC7B0D00E881EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		085B6FBB1CCC7B0D00E881EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		085B6FC21CCC83F700E881EA /* ZLViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLViewPagerController.h; sourceTree = "<group>"; };
+		085B6FC31CCC83F700E881EA /* ZLViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLViewPagerController.m; sourceTree = "<group>"; };
+		085B6FC51CCC8BB900E881EA /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		085B6FC61CCC8BB900E881EA /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		085B6FC81CCC8BF500E881EA /* ZLViewPagerFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLViewPagerFlowLayout.h; sourceTree = "<group>"; };
+		085B6FC91CCC8BF500E881EA /* ZLViewPagerFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLViewPagerFlowLayout.m; sourceTree = "<group>"; };
+		085B6FCB1CCCA9C500E881EA /* ChildDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildDemoViewController.h; sourceTree = "<group>"; };
+		085B6FCC1CCCA9C500E881EA /* ChildDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildDemoViewController.m; sourceTree = "<group>"; };
+		085B6FCF1CCCC75600E881EA /* ZLScrollPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLScrollPageViewController.h; sourceTree = "<group>"; };
+		085B6FD01CCCC75600E881EA /* ZLScrollPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLScrollPageViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		085B6FA41CCC7B0C00E881EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		085B6F9E1CCC7B0C00E881EA = {
+			isa = PBXGroup;
+			children = (
+				085B6FA91CCC7B0C00E881EA /* ZLViewPagerController */,
+				085B6FA81CCC7B0C00E881EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		085B6FA81CCC7B0C00E881EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				085B6FA71CCC7B0C00E881EA /* ZLViewPagerController.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		085B6FA91CCC7B0C00E881EA /* ZLViewPagerController */ = {
+			isa = PBXGroup;
+			children = (
+				085B6FAD1CCC7B0C00E881EA /* AppDelegate.h */,
+				085B6FAE1CCC7B0C00E881EA /* AppDelegate.m */,
+				085B6FB01CCC7B0C00E881EA /* ViewController.h */,
+				085B6FB11CCC7B0C00E881EA /* ViewController.m */,
+				085B6FCB1CCCA9C500E881EA /* ChildDemoViewController.h */,
+				085B6FCC1CCCA9C500E881EA /* ChildDemoViewController.m */,
+				085B6FCE1CCCB08F00E881EA /* source1 */,
+				085B6FC11CCC83B800E881EA /* source */,
+				085B6FB31CCC7B0C00E881EA /* Main.storyboard */,
+				085B6FB61CCC7B0C00E881EA /* Assets.xcassets */,
+				085B6FB81CCC7B0D00E881EA /* LaunchScreen.storyboard */,
+				085B6FBB1CCC7B0D00E881EA /* Info.plist */,
+				085B6FAA1CCC7B0C00E881EA /* Supporting Files */,
+			);
+			path = ZLViewPagerController;
+			sourceTree = "<group>";
+		};
+		085B6FAA1CCC7B0C00E881EA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				085B6FAB1CCC7B0C00E881EA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		085B6FC11CCC83B800E881EA /* source */ = {
+			isa = PBXGroup;
+			children = (
+				085B6FC21CCC83F700E881EA /* ZLViewPagerController.h */,
+				085B6FC31CCC83F700E881EA /* ZLViewPagerController.m */,
+				085B6FC81CCC8BF500E881EA /* ZLViewPagerFlowLayout.h */,
+				085B6FC91CCC8BF500E881EA /* ZLViewPagerFlowLayout.m */,
+				085B6FC51CCC8BB900E881EA /* UIView+Frame.h */,
+				085B6FC61CCC8BB900E881EA /* UIView+Frame.m */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		085B6FCE1CCCB08F00E881EA /* source1 */ = {
+			isa = PBXGroup;
+			children = (
+				085B6FCF1CCCC75600E881EA /* ZLScrollPageViewController.h */,
+				085B6FD01CCCC75600E881EA /* ZLScrollPageViewController.m */,
+			);
+			path = source1;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		085B6FA61CCC7B0C00E881EA /* ZLViewPagerController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 085B6FBE1CCC7B0D00E881EA /* Build configuration list for PBXNativeTarget "ZLViewPagerController" */;
+			buildPhases = (
+				085B6FA31CCC7B0C00E881EA /* Sources */,
+				085B6FA41CCC7B0C00E881EA /* Frameworks */,
+				085B6FA51CCC7B0C00E881EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZLViewPagerController;
+			productName = ZLViewPagerController;
+			productReference = 085B6FA71CCC7B0C00E881EA /* ZLViewPagerController.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		085B6F9F1CCC7B0C00E881EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "30days-tech";
+				TargetAttributes = {
+					085B6FA61CCC7B0C00E881EA = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 085B6FA21CCC7B0C00E881EA /* Build configuration list for PBXProject "ZLViewPagerController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 085B6F9E1CCC7B0C00E881EA;
+			productRefGroup = 085B6FA81CCC7B0C00E881EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				085B6FA61CCC7B0C00E881EA /* ZLViewPagerController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		085B6FA51CCC7B0C00E881EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				085B6FBA1CCC7B0D00E881EA /* LaunchScreen.storyboard in Resources */,
+				085B6FB71CCC7B0C00E881EA /* Assets.xcassets in Resources */,
+				085B6FB51CCC7B0C00E881EA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		085B6FA31CCC7B0C00E881EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				085B6FD11CCCC75600E881EA /* ZLScrollPageViewController.m in Sources */,
+				085B6FB21CCC7B0C00E881EA /* ViewController.m in Sources */,
+				085B6FAF1CCC7B0C00E881EA /* AppDelegate.m in Sources */,
+				085B6FCA1CCC8BF500E881EA /* ZLViewPagerFlowLayout.m in Sources */,
+				085B6FC41CCC83F700E881EA /* ZLViewPagerController.m in Sources */,
+				085B6FC71CCC8BB900E881EA /* UIView+Frame.m in Sources */,
+				085B6FAC1CCC7B0C00E881EA /* main.m in Sources */,
+				085B6FCD1CCCA9C500E881EA /* ChildDemoViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		085B6FB31CCC7B0C00E881EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				085B6FB41CCC7B0C00E881EA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		085B6FB81CCC7B0D00E881EA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				085B6FB91CCC7B0D00E881EA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		085B6FBC1CCC7B0D00E881EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		085B6FBD1CCC7B0D00E881EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		085B6FBF1CCC7B0D00E881EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZLViewPagerController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.30days.ZLViewPagerController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		085B6FC01CCC7B0D00E881EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ZLViewPagerController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.30days.ZLViewPagerController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		085B6FA21CCC7B0C00E881EA /* Build configuration list for PBXProject "ZLViewPagerController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				085B6FBC1CCC7B0D00E881EA /* Debug */,
+				085B6FBD1CCC7B0D00E881EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		085B6FBE1CCC7B0D00E881EA /* Build configuration list for PBXNativeTarget "ZLViewPagerController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				085B6FBF1CCC7B0D00E881EA /* Debug */,
+				085B6FC01CCC7B0D00E881EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 085B6F9F1CCC7B0C00E881EA /* Project object */;
+}
