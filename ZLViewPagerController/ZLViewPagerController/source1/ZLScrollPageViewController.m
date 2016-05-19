@@ -7,13 +7,17 @@
 //
 
 #import "ZLScrollPageViewController.h"
-#import "UIView+Frame.h"
+#import "HMSegmentedControl.h"
 
 @interface ZLScrollPageViewController ()<UIScrollViewDelegate>
 
-@property (weak, nonatomic) UIView *contentView;
+@property (strong, nonatomic) UIView *contentView;
 
-@property (weak, nonatomic) UIScrollView *pageScrollView;
+@property (strong, nonatomic) UIScrollView *pageScrollView;
+
+@property (strong, nonatomic) HMSegmentedControl *segmentedControl;
+
+@property (strong, nonatomic) NSMutableDictionary<NSNumber*, UIViewController*> *visibleControllers;
 
 @property (assign, nonatomic) NSInteger selIndex;
 
@@ -21,70 +25,73 @@
 
 @property (assign, nonatomic) BOOL isAnimating;
 
-@property (assign, nonatomic) BOOL isInitial;
-
 @end
 
 static CGFloat const kNavBarHeight = 64.0;
-static NSString *const kPageCollectionViewDidEndScrolling = @"PageCollectionViewDidEndScrolling";
+
+NS_INLINE CGRect frameForControllerAtIndex(NSInteger index, CGRect frame)
+{
+    return CGRectMake(index * CGRectGetWidth(frame), 0, CGRectGetWidth(frame), CGRectGetHeight(frame));
+}
 
 @implementation ZLScrollPageViewController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self setup];
+        [self initData];
     }
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-
-- (void)setup {
+- (void)initData {
     _selIndex = 0;
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    _isAnimating = NO;
+    _visibleControllers = [NSMutableDictionary dictionary];
 }
 
-- (void)setupAllChildViewController {
-    NSUInteger count = self.childViewControllers.count;
+- (void)setPageControllers:(NSArray<__kindof UIViewController *> *)pageControllers {
+    _pageControllers = pageControllers;
+    
+    // setup contentSize
+    NSUInteger count = pageControllers.count;
     CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
     self.pageScrollView.contentSize = CGSizeMake(screenWidth * count, 0);
-    [self addNextPageViewController:_selIndex];
+    self.selectedIndex = 0;
+}
+
+- (void)setSelectedIndex:(NSInteger)selectedIndex {
+    _selectedIndex = selectedIndex;
+    if (_selectedIndex < _pageControllers.count) {
+        UIViewController *viewControlle = _pageControllers[selectedIndex];
+        [self removeViewController:viewControlle atIndex:selectedIndex];
+        [self addViewController:viewControlle atIndex:selectedIndex];
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if (!_isInitial) {
-        _isInitial = YES;
-        
-        // 没有子控制器，不需要设置标题
-        if (self.childViewControllers.count == 0) return;
-        
-        [self setupAllChildViewController];
-    }
+    [self.view addSubview:self.segmentedControl];
+    [self.view addSubview:self.contentView];
+    [self.contentView addSubview:self.pageScrollView];
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    
-    CGFloat contentY = self.navigationController ? kNavBarHeight : CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
-    
+
     CGFloat screenHeight = CGRectGetHeight([UIScreen mainScreen].bounds);
     CGFloat contentWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
+    
+    self.segmentedControl.frame = CGRectMake(0, 20, contentWidth, 44);
+    
+    CGFloat contentY = self.navigationController ? kNavBarHeight : CGRectGetHeight([UIApplication sharedApplication].statusBarFrame);
+    contentY += CGRectGetHeight(self.segmentedControl.frame);
     CGFloat contentHeight = screenHeight - contentY;
     
-    if (self.contentView.height == 0) {
+    if (CGRectGetHeight(self.contentView.frame) == 0) {
         self.contentView.frame = CGRectMake(0, contentY, contentWidth, contentHeight);
     }
     
@@ -95,35 +102,61 @@ static NSString *const kPageCollectionViewDidEndScrolling = @"PageCollectionView
 
 - (UIView *)contentView {
     if (!_contentView) {
-        UIView *contentView = [[UIView alloc] initWithFrame:CGRectZero];
-        [self.view addSubview:contentView];
-        _contentView = contentView;
+        _contentView = [[UIView alloc] initWithFrame:CGRectZero];
+        _contentView.backgroundColor = [UIColor whiteColor];
     }
     return _contentView;
 }
 
 - (UIScrollView *)pageScrollView {
     if (!_pageScrollView) {
-        UIScrollView *pageScrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
-        pageScrollView.delegate = self;
-        pageScrollView.bounces = NO;
-        pageScrollView.pagingEnabled = YES;
-        pageScrollView.backgroundColor = [UIColor whiteColor];
-        pageScrollView.showsHorizontalScrollIndicator = NO;
-        [self.contentView addSubview:pageScrollView];
-        _pageScrollView = pageScrollView;
+        _pageScrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
+        _pageScrollView.delegate = self;
+        _pageScrollView.bounces = NO;
+        _pageScrollView.pagingEnabled = YES;
+        _pageScrollView.backgroundColor = [UIColor whiteColor];
+        _pageScrollView.showsHorizontalScrollIndicator = NO;
     }
     return _pageScrollView;
 }
 
-#pragma UIScrollView delegate 
+- (HMSegmentedControl *)segmentedControl {
+    if (!_segmentedControl) {
+        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"习惯培养", @"每周挑战", @"校内表现"]];
+        _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor darkGrayColor]};
+        _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
+        _segmentedControl.selectionIndicatorHeight = 2.0f;
+        _segmentedControl.backgroundColor = [UIColor whiteColor];
+        _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+        _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
+        [_segmentedControl addTarget:self action:@selector(segmentedControlAction:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _segmentedControl;
+}
+
+#pragma mark - HMSegmentedControl action
+
+- (void)segmentedControlAction:(HMSegmentedControl *)sender {
+    NSInteger pageIndex = sender.selectedSegmentIndex;
+    CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
+    CGFloat offsetX = screenWidth * pageIndex;
+    [self.pageScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+    
+    UIViewController *viewController = _pageControllers[pageIndex];
+    [self removeViewController:viewController atIndex:pageIndex];
+    [self addViewController:viewController atIndex:pageIndex];
+    
+    _selIndex = pageIndex;
+}
+
+#pragma mark - UIScrollView delegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat offsetX = scrollView.contentOffset.x;
     CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
+
     NSInteger offsetXInt = offsetX;
     NSInteger screenWInt = screenWidth;
-    
     NSInteger extraInt = offsetXInt % screenWInt;
     if (extraInt > screenWidth * 0.5) {
         offsetX = offsetX + (screenWidth - extraInt);
@@ -140,35 +173,49 @@ static NSString *const kPageCollectionViewDidEndScrolling = @"PageCollectionView
     
     if (_selIndex == pageIndex) return;
 
-    [self addNextPageViewController:pageIndex];
+    UIViewController *viewController = _pageControllers[pageIndex];
+    [self.segmentedControl setSelectedSegmentIndex:pageIndex animated:YES];
+    [self removeViewController:viewController atIndex:pageIndex];
+    [self addViewController:viewController atIndex:pageIndex];
     
-//    UIViewController *vc = self.childViewControllers[pageIndex];
-//    
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kPageCollectionViewDidEndScrolling object:vc];
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
+    _selIndex = pageIndex;
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     _isAnimating = NO;
 }
 
-- (void)addNextPageViewController:(NSInteger)index {
-    _selIndex = index;
-    
-    [self.pageScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
-    CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
-    UIViewController *vc = self.childViewControllers[index];
-    vc.view.frame = CGRectMake(index * screenWidth, 0, CGRectGetWidth(self.pageScrollView.frame), CGRectGetHeight(self.pageScrollView.frame));
-    [self.pageScrollView addSubview:vc.view];
+#pragma mark - add child viewController
+
+- (void)addViewController:(UIViewController *)viewController atIndex:(NSInteger)index {
+    if (!viewController.parentViewController) {
+        [self addChildViewController:viewController];
+        viewController.view.frame = frameForControllerAtIndex(index, _pageScrollView.frame);
+        [_pageScrollView addSubview:viewController.view];
+        [viewController didMoveToParentViewController:self];
+        
+        if (![_visibleControllers objectForKey:@(index)]) {
+            [_visibleControllers setObject:viewController forKey:@(index)];
+        }
+    } else {
+        viewController.view.frame = frameForControllerAtIndex(index, _pageScrollView.frame);
+    }
 }
 
-- (void)removeLastPageViewController:(NSInteger)index {
-    UIViewController *vc = self.childViewControllers[_selIndex];
-    [vc.view removeFromSuperview];
+#pragma mark - remove viewController
+
+- (void)removeViewController:(UIViewController *)viewController atIndex:(NSInteger)index {
+    if (viewController.parentViewController) {
+        [self removeViewController:viewController];
+    }
+}
+
+- (void)removeViewController:(UIViewController *)viewController
+{
+    [viewController willMoveToParentViewController:nil];
+    [viewController.view removeFromSuperview];
+    [viewController removeFromParentViewController];
 }
 
 @end
+

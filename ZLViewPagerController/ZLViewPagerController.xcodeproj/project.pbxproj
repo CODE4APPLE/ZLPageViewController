@@ -18,6 +18,7 @@
 		085B6FCA1CCC8BF500E881EA /* ZLViewPagerFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 085B6FC91CCC8BF500E881EA /* ZLViewPagerFlowLayout.m */; };
 		085B6FCD1CCCA9C500E881EA /* ChildDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085B6FCC1CCCA9C500E881EA /* ChildDemoViewController.m */; };
 		085B6FD11CCCC75600E881EA /* ZLScrollPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085B6FD01CCCC75600E881EA /* ZLScrollPageViewController.m */; };
+		08E41F931CEDCC6100902F9B /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E41F921CEDCC6100902F9B /* HMSegmentedControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		085B6FCC1CCCA9C500E881EA /* ChildDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildDemoViewController.m; sourceTree = "<group>"; };
 		085B6FCF1CCCC75600E881EA /* ZLScrollPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLScrollPageViewController.h; sourceTree = "<group>"; };
 		085B6FD01CCCC75600E881EA /* ZLScrollPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLScrollPageViewController.m; sourceTree = "<group>"; };
+		08E41F911CEDCC6100902F9B /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		08E41F921CEDCC6100902F9B /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +117,20 @@
 		085B6FCE1CCCB08F00E881EA /* source1 */ = {
 			isa = PBXGroup;
 			children = (
+				08E41F901CEDCC6100902F9B /* HMSegmentedControl */,
 				085B6FCF1CCCC75600E881EA /* ZLScrollPageViewController.h */,
 				085B6FD01CCCC75600E881EA /* ZLScrollPageViewController.m */,
 			);
 			path = source1;
+			sourceTree = "<group>";
+		};
+		08E41F901CEDCC6100902F9B /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				08E41F911CEDCC6100902F9B /* HMSegmentedControl.h */,
+				08E41F921CEDCC6100902F9B /* HMSegmentedControl.m */,
+			);
+			path = HMSegmentedControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +209,7 @@
 				085B6FCA1CCC8BF500E881EA /* ZLViewPagerFlowLayout.m in Sources */,
 				085B6FC41CCC83F700E881EA /* ZLViewPagerController.m in Sources */,
 				085B6FC71CCC8BB900E881EA /* UIView+Frame.m in Sources */,
+				08E41F931CEDCC6100902F9B /* HMSegmentedControl.m in Sources */,
 				085B6FAC1CCC7B0C00E881EA /* main.m in Sources */,
 				085B6FCD1CCCA9C500E881EA /* ChildDemoViewController.m in Sources */,
 			);
@@ -346,6 +360,7 @@
 				085B6FC01CCC7B0D00E881EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

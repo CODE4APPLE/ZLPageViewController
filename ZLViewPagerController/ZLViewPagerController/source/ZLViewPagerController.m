@@ -54,10 +54,6 @@ static NSString *const kPageCollectionViewDidEndScrolling = @"PageCollectionView
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
-- (void)setup {
-    
-}
-
 - (void)setSelectedPageIndex:(NSInteger)selectedPageIndex {
     if (_selectedPageIndex != selectedPageIndex) {
         _selectedPageIndex = selectedPageIndex;

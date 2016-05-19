@@ -10,4 +10,7 @@
 
 @interface ZLScrollPageViewController : UIViewController
 
+@property (nonatomic, assign) NSInteger selectedIndex;
+@property (nonatomic, strong) NSArray<__kindof UIViewController*> *pageControllers;
+
 @end
