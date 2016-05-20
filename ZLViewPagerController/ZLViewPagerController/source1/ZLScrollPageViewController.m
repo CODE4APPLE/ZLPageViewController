@@ -17,8 +17,6 @@
 
 @property (strong, nonatomic) HMSegmentedControl *segmentedControl;
 
-@property (strong, nonatomic) NSMutableDictionary<NSNumber*, UIViewController*> *visibleControllers;
-
 @property (assign, nonatomic) NSInteger selIndex;
 
 @property (assign, nonatomic) CGFloat lastOffsetX;
@@ -47,7 +45,6 @@ NS_INLINE CGRect frameForControllerAtIndex(NSInteger index, CGRect frame)
 - (void)initData {
     _selIndex = 0;
     _isAnimating = NO;
-    _visibleControllers = [NSMutableDictionary dictionary];
 }
 
 - (void)setPageControllers:(NSArray<__kindof UIViewController *> *)pageControllers {
@@ -193,10 +190,6 @@ NS_INLINE CGRect frameForControllerAtIndex(NSInteger index, CGRect frame)
         viewController.view.frame = frameForControllerAtIndex(index, _pageScrollView.frame);
         [_pageScrollView addSubview:viewController.view];
         [viewController didMoveToParentViewController:self];
-        
-        if (![_visibleControllers objectForKey:@(index)]) {
-            [_visibleControllers setObject:viewController forKey:@(index)];
-        }
     } else {
         viewController.view.frame = frameForControllerAtIndex(index, _pageScrollView.frame);
     }
@@ -210,8 +203,7 @@ NS_INLINE CGRect frameForControllerAtIndex(NSInteger index, CGRect frame)
     }
 }
 
-- (void)removeViewController:(UIViewController *)viewController
-{
+- (void)removeViewController:(UIViewController *)viewController {
     [viewController willMoveToParentViewController:nil];
     [viewController.view removeFromSuperview];
     [viewController removeFromParentViewController];
